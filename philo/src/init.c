@@ -38,6 +38,29 @@ t_bool	init_rules(int ac, char *av[])
 }
 static t_bool	ft_init_forks(t_forks *forks, size_t i)
 {
+	static	t_forks			*first_fork;
+	static	pthread_mutex_t	*last;
+
+	if (i == 0)
+	{
+		forks->right = ft_malloc(sizeof(pthread_mutex_t));
+		if (ft_mutex_init(forks->right))
+			return (handle_error(E_MUTEX_FAILED));
+		last = forks->right;
+		first_fork = forks;
+	}
+	else
+	{
+		forks->right = ft_malloc(sizeof(pthread_mutex_t));
+		if (ft_mutex_init(forks->right))
+			return (handle_error(E_MUTEX_FAILED));
+		forks->right = last;
+		last = forks->right;
+		if (i == get_rules()->num_of_philosophers - 1)
+			first_fork->left = forks->right;
+	}
+	return (false);
+}
 	
 
 t_bool	init_philosophers(t_rules *rules)

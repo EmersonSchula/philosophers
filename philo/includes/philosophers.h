@@ -27,9 +27,13 @@ typedef enum e_bool
 
 typedef enum e_error
 {
+	E_SUCCESS,
 	E_FEW_ARGS,
 	E_MANY_ARGS,
-	E_INVALID_ARG,
+	E_INVALID_ARGS,
+	E_MUTEX_FAILED,
+	E_MALLOC_FAILED,
+	E_THREAD_FAILED,
 	E_INVALID_PHIL_NUM,
 	
 }					t_error;
@@ -80,5 +84,6 @@ t_bool				ft_isdigit(int c);
 size_t				ft_atost(const char *nptr);
 
 // INIT
+t_bool				init_philosophers(t_rules *rules);
 t_bool				init_rules(int ac, char *av[]);
 #endif

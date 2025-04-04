@@ -18,10 +18,12 @@ t_bool	handle_error(int error_code)
 		printf("Error: Too few arguments\n");
 	if (error_code == E_MANY_ARGS)
 		printf("Error: Too many arguments\n");
-	if (error_code == E_INVALID_ARG)
+	if (error_code == E_INVALID_ARGS)
 		printf("Error: Invalid argument\n");
 	if (error_code == E_INVALID_PHIL_NUM)
 		printf("Error: Invalid number of philosophers\n");
+	if (error_code == E_MUTEX_FAILED)
+		printf("Mutex failed!\n");
 	
 	return (true);
 }
