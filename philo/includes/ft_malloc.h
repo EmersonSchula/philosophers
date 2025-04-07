@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_malloc.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eschula <<marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/12 15:37:22 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/07 19:33:27 by eschula          ###   ########.fr       */
+/*   Created: 2025/04/07 19:40:05 by eschula           #+#    #+#             */
+/*   Updated: 2025/04/07 19:43:45 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#ifndef FT_MALLOC_H
+# define FT_MALLOC_H
 
-int	main(int argc, char **argv)
+# include <stdlib.h>
+
+typedef struct s_malloc
 {
-	if (ft_validate_args(argc, argv))
-		return (1);
-	if (init_rules(argc, argv))
-		return (1);
-	if (init_philosophers(get_rules()))
-		return (1);
-	return (0);
-}
+	void	*list[1000];
+	size_t	i;
+}			t_malloc;
+
+void	*ft_malloc(size_t size);
+void	ft_free_all(void);
+
+#endif

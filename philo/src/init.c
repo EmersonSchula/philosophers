@@ -6,7 +6,7 @@
 /*   By: eschula <<marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 18:23:38 by eschula           #+#    #+#             */
-/*   Updated: 2025/03/19 16:01:56 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/07 19:53:53 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_bool	init_rules(int ac, char *av[])
 		rules->num_of_meals = ft_atost(av[5]);
 	else
 		rules->num_of_meals = __SIZE_MAX__;
-	rules->philo = (t_philo *)malloc(sizeof(t_philo) * rules->num_of_philosophers);
+	rules->philo = ft_malloc(sizeof(t_philo) * rules->num_of_philosophers);
 	return (false);
 }
 static t_bool	ft_init_forks(t_forks *forks, size_t i)

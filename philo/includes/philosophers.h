@@ -6,12 +6,14 @@
 /*   By: eschula <<marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 16:12:45 by eschula           #+#    #+#             */
-/*   Updated: 2025/03/12 19:49:18 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/07 19:55:16 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILOSOPHERS_H
 # define PHILOSOPHERS_H
+
+# include "colors.h"
 
 # include <pthread.h>
 # include <stdio.h>
@@ -73,7 +75,7 @@ typedef struct s_thread
 t_bool				ft_validate_args(int ac, char *av[]);
 
 // UTILS
-t_bool				handle_error(int error_code);
+t_bool				handle_error(int error);
 
 // LIBFT
 t_bool				ft_isdigit(int c);
@@ -81,4 +83,5 @@ size_t				ft_atost(const char *nptr);
 
 // INIT
 t_bool				init_rules(int ac, char *av[]);
+t_bool				init_philosophers(t_rules *rules);
 #endif
