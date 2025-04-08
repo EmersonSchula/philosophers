@@ -6,7 +6,7 @@
 /*   By: eschula <<marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 19:00:25 by eschula           #+#    #+#             */
-/*   Updated: 2025/03/12 19:07:21 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/07 19:31:12 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,13 @@ size_t	ft_atost(const char *nptr)
 		i++;
 	}
 	return (result * is_negative);
+}
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+	
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);	
 }

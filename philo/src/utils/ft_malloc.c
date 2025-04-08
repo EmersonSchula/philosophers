@@ -5,23 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/04 18:59:25 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/08 13:50:59 by eschula          ###   ########.fr       */
+/*   Created: 2025/04/07 19:38:02 by eschula           #+#    #+#             */
+/*   Updated: 2025/04/08 14:17:59 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_malloc.h"
 #include "string.h"
 
-void    *ft_malloc(size_ size)
+static t_malloc	*get_malloc(void)
 {
-    t_malloc    *mlc;
-    void        *ptr;
+	static t_malloc	mlc;
 
-    mlc = get_malloc();
-    ptr = malloc(size);
-    mlc->list[mlc->i] = ptr;
-    mlc->i++;
-    return (ptr);
+	return (&mlc);
 }
 
+void	*ft_malloc(size_t size)
+{
+	t_malloc	*mlc;
+	void		*ptr;
+
+	mlc = get_malloc();
+	ptr = malloc(size);
+	memset(ptr, 0, size);
+	mlc->list[mlc->i] = ptr;
+	mlc->i++;
+	return (ptr);	
+}
