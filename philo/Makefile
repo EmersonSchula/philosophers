@@ -75,6 +75,21 @@ fclean: clean
 re: fclean
 	@make --no-print-directory
 
+# TESTS
+TEST_PATH := ./tests/
+TEST_FILES := $(wildcard $(TEST_PATH)*.c)
+TEST_OBJS := $(TEST_FILES:%.c=%.o)
+TEST_NAME := philo_tests
+
+TEST_BINARIES := $(patsubst $(TEST_PATH)%.c, $(TEST_PATH)%, $(TEST_FILES))
+
+tests: $(TEST_BINARIES)
+
+$(TEST_PATH)%: $(TEST_PATH)%.c $(filter-out $(BIN_PATH)main.o, $(OBJS))
+	@$(CC) $(CFLAGS) -o $@ $< $(filter-out $(BIN_PATH)main.o, $(OBJS)) -I$(HEADER_PATH)
+	@echo "Running $@"
+	@./$@
+
 valgrind: all
 	@valgrind --leak-check=full \
 	--show-reachable=yes \

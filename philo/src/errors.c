@@ -6,11 +6,18 @@
 /*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 16:21:45 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/08 16:27:44 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/10 14:56:49 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
+
+static void	clear_all(char *error)
+{
+	ft_mutex_destroy_all();
+	ft_free_all();
+	write(2, error, ft_strlen(error));
+}
 
 static void	print_guide(void)
 {
@@ -44,6 +51,8 @@ t_bool	handle_error(t_error error)
 		print_error("Error: Invalid argument\n");
 	if (error == E_INVALID_PHIL_NUM)
 		print_error("Error: Invalid number of philosophers\n");
+	if (error == E_MUTEX_FAILED)
+		clear_all("thread failed!\n");
 	
 	return (true);
 }

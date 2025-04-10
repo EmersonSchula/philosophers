@@ -6,7 +6,7 @@
 /*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 17:20:17 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/10 02:37:47 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/10 14:47:59 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,19 @@ int    ft_mutex_init(pthread_mutex_t *mutex)
     mtx->list[mtx->i] = mutex;
     mtx->i++;
     return (0);
+}
+
+void    ft_mutex_destroy_all(void)
+{
+    t_mutex *mtx;
+
+    mtx = get_mutex();
+    while (mtx->i > 0)
+    {
+        mtx->i--;
+        pthread_mutex_destroy(mtx->list[mtx->i]);
+        mtx->list[mtx->i] = NULL;
+    }
 }
 
 void    ft_mutex_lock(pthread_mutex_t *mutex)

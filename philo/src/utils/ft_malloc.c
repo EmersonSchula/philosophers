@@ -6,7 +6,7 @@
 /*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 19:38:02 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/08 14:17:59 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/10 14:54:13 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,17 @@ void	*ft_malloc(size_t size)
 	mlc->list[mlc->i] = ptr;
 	mlc->i++;
 	return (ptr);	
+}
+
+void	ft_free_all(void)
+{
+	t_malloc	*mlc;
+
+	mlc = get_malloc();
+	while (mlc->i > 0)
+	{
+		mlc->i--;
+		free(mlc->list[mlc->i]);
+		mlc->list[mlc->i] = NULL;
+	}
 }

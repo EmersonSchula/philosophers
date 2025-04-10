@@ -6,7 +6,7 @@
 /*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 17:20:56 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/10 02:38:29 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/10 14:49:35 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@
 
 typedef struct  s_mutex
 {
-    pthread_mutex_t *list[1000];
-    size_t          i;
+	pthread_mutex_t *list[1000];
+	size_t          i;
 }                   t_mutex;
 
+void                ft_mutex_destroy_all(void);
 int                 ft_mutex_init(pthread_mutex_t *mutex);
 void                ft_mutex_lock(pthread_mutex_t *mutex);
 void                ft_mutex_unlock(pthread_mutex_t *mutex);

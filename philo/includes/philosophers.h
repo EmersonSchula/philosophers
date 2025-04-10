@@ -6,7 +6,7 @@
 /*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 16:12:45 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/10 02:42:05 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/10 17:10:01 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ typedef enum e_bool
 	false,
 	true
 }					t_bool;
+
+typedef enum e_status
+{
+	S_FORK,
+}					t_status;
 
 typedef enum e_error
 {
@@ -97,6 +102,7 @@ t_bool				ft_validate_args(int ac, char *av[]);
 t_utils_mutex		*get_mutex(void);
 t_rules				*get_rules(void);
 t_bool				handle_error(t_error error);
+void				print_status(t_philo philo, t_status status);
 
 // LIBS
 t_bool				ft_isdigit(int c);
@@ -106,7 +112,7 @@ size_t				ft_strlen(const char *str);
 // INIT
 t_bool				init_philosophers(t_rules *rules);
 t_bool				init_rules(int ac, char *av[]);
-t_bool				init_philosophers(t_rules *rules);
+t_bool				init_utils_mutex(t_utils_mutex *mtx);
 
 // TASK
 void				*philo_task(void *args);

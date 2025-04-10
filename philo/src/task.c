@@ -6,11 +6,29 @@
 /*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 01:13:47 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/10 02:01:42 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/10 17:11:55 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
+
+static void philo_take_fork(t_philo *philo)
+{
+    if (philo->id % 2 == 0)
+    {
+        ft_mutex_lock(philo->forks.right);
+        print_status(*philo, S_FORK);
+        ft_mutex_lock(philo->forks.left);
+        print_status(*philo, S_FORK);
+    }
+    else
+    {
+        ft_mutex_lock(philo->forks.left);
+        print_status(*philo, S_FORK);
+        ft_mutex_lock(philo->forks.right);
+        print_status(*philo, S_FORK);       
+    }
+}
 
 void    *philo_task(void *args)
 {
@@ -23,6 +41,7 @@ void    *philo_task(void *args)
     {
         if (ft_all_eaten())
             break;
+        philo_take_fork(philo);
     }
     return (NULL);
 }

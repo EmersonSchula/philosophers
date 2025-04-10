@@ -6,11 +6,22 @@
 /*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 18:23:38 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/10 01:05:45 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/10 15:47:15 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
+
+t_bool	init_utils_mutex(t_utils_mutex *mtx)
+{
+	if (ft_mutex_init(&mtx->meals))
+		return (handle_error(E_MUTEX_FAILED));
+	if (ft_mutex_init(&mtx->print))
+		return (handle_error(E_MUTEX_FAILED));
+	if (ft_mutex_init(&mtx->philo_dead))
+		return (handle_error(E_MUTEX_FAILED));
+	return (false);
+}
 
 t_bool	init_rules(int ac, char *av[])
 {
