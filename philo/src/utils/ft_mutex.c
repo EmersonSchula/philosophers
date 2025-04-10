@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_malloc.h                                        :+:      :+:    :+:   */
+/*   ft_mutex.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 19:40:05 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/08 17:09:24 by eschula          ###   ########.fr       */
+/*   Created: 2025/04/08 17:20:17 by eschula           #+#    #+#             */
+/*   Updated: 2025/04/08 17:30:20 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_MALLOC_H
-# define FT_MALLOC_H
+#include "ft_mutex.h"
 
-# include <stdlib.h>
-
-typedef struct s_malloc
+static t_mutex *get_mutex(void)
 {
-	void	*list[1000];
-	size_t	i;
-}			t_malloc;
+    static t_mutex mutex;
+    
+    return (&mutex);
+}
 
-void	*ft_malloc(size_t size);
-void	ft_free_all(void);
+int    ft_mutex_init(pthread_mutex_t *mutex)
+{
+    t_mutex *mtx;
 
-#endif
+    mtx = get_mutex();
+    
+
+    
+    return (0);
+}
+    

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eschula <<marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 16:12:45 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/07 19:55:16 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/09 23:16:55 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define PHILOSOPHERS_H
 
 # include "colors.h"
+# include "ft_malloc.h"
+# include "ft_mutex.h"
 
 # include <pthread.h>
 # include <stdio.h>
@@ -40,6 +42,28 @@ typedef enum e_error
 	
 }					t_error;
 
+typedef struct	s_forks
+{
+	pthread_mutex_t	*right;
+	pthread_mutex_t	*left;
+}					t_forks;
+
+typedef struct	s_thread
+{
+	pthread_t		thread;
+	void			*(*fun)(void *);
+	void			*args;
+}					t_thread;
+
+typedef struct	s_philo
+{
+	size_t			id;
+	size_t			meals;
+	size_t			last_meal;
+	t_thread		thread;
+	t_forks			forks;
+}					t_philo;
+
 typedef struct s_rules
 {
 	size_t			die_time;
@@ -53,40 +77,25 @@ typedef struct s_rules
 	t_bool			finish;
 }					t_rules;
 
-typedef struct s_philo
-{
-	size_t			id;
-	size_t			meals;
-	size_t			last_meal;
-	t_thread		thread;
-	t_forks			forks;
-}					t_philo;
-
-typedef struct s_forks
-{
-	pthread_mutex_t	*right;
-	pthread_mutex_t	*left;
-}					t_forks;
-
-typedef struct s_thread
-{
-	pthread_t		thread;
-	void			*(*fun)(void *);
-	void			*args;
-}					t_thread;
-
 // VALIDATE
 t_bool				ft_validate_args(int ac, char *av[]);
 
 // UTILS
-t_bool				handle_error(int error);
+t_rules				*get_rules(void);
+t_bool				handle_error(t_error error);
 
-// LIBFT
+// LIBS
 t_bool				ft_isdigit(int c);
 size_t				ft_atost(const char *nptr);
+size_t				ft_strlen(const char *str);
 
 // INIT
 t_bool				init_philosophers(t_rules *rules);
 t_bool				init_rules(int ac, char *av[]);
 t_bool				init_philosophers(t_rules *rules);
+
+// THREADS
+
+
+
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eschula <<marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:39:41 by eschula           #+#    #+#             */
-/*   Updated: 2025/03/12 16:27:49 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/08 16:27:53 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_bool	ft_validate_args(int ac, char *av[])
 		while (av[i][j])
 		{
 			if (av[i][j] < '0' || av[i][j] > '9')
-				return (handle_error(E_INVALID_ARG));
+				return (handle_error(E_INVALID_ARGS));
 			j++;
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 16:21:45 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/08 14:17:09 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/08 16:27:44 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_bool	handle_error(t_error error)
 		print_error("Error: Too few arguments\n");
 	if (error == E_MANY_ARGS)
 		print_error("Error: Too many arguments\n");
-	if (error == E_INVALID_ARG)
+	if (error == E_INVALID_ARGS)
 		print_error("Error: Invalid argument\n");
 	if (error == E_INVALID_PHIL_NUM)
 		print_error("Error: Invalid number of philosophers\n");

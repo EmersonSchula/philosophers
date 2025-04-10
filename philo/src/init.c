@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eschula <<marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 18:23:38 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/07 19:53:53 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/09 15:00:56 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ t_bool	init_rules(int ac, char *av[])
 	rules->philo = ft_malloc(sizeof(t_philo) * rules->num_of_philosophers);
 	return (false);
 }
+
 static t_bool	ft_init_forks(t_forks *forks, size_t i)
 {
 	static	t_forks			*first_fork;
@@ -61,7 +62,6 @@ static t_bool	ft_init_forks(t_forks *forks, size_t i)
 	}
 	return (false);
 }
-	
 
 t_bool	init_philosophers(t_rules *rules)
 {
@@ -73,7 +73,7 @@ t_bool	init_philosophers(t_rules *rules)
 		rules->philo[i].id = i + 1;
 		if (ft_init_forks(&rules->philo[i].forks, i))
 			return (true);
-		thread_build(&rules->philo[i].thread, &rules->philo[i]);
+		//thread_build(&rules->philo[i].thread, &rules->philo[i]);
 		i++;
 	}
 	return (false);
