@@ -6,7 +6,7 @@
 /*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 16:12:45 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/09 23:16:55 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/10 02:42:05 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,26 @@ typedef enum e_error
 	
 }					t_error;
 
-typedef struct	s_forks
-{
-	pthread_mutex_t	*right;
-	pthread_mutex_t	*left;
-}					t_forks;
-
 typedef struct	s_thread
 {
 	pthread_t		thread;
 	void			*(*fun)(void *);
 	void			*args;
 }					t_thread;
+
+typedef struct s_utils_mutex
+{
+	pthread_mutex_t	philo_dead;
+	pthread_mutex_t	meals;
+	pthread_mutex_t	print;
+}					t_utils_mutex;
+
+
+typedef struct	s_forks
+{
+	pthread_mutex_t	*right;
+	pthread_mutex_t	*left;
+}					t_forks;
 
 typedef struct	s_philo
 {
@@ -77,10 +85,16 @@ typedef struct s_rules
 	t_bool			finish;
 }					t_rules;
 
+// TIME
+void				ft_msleep(long long ms);
+
 // VALIDATE
+t_bool				ft_all_eaten(void);
+t_bool				check_philo_dead(void);
 t_bool				ft_validate_args(int ac, char *av[]);
 
 // UTILS
+t_utils_mutex		*get_mutex(void);
 t_rules				*get_rules(void);
 t_bool				handle_error(t_error error);
 
@@ -94,8 +108,11 @@ t_bool				init_philosophers(t_rules *rules);
 t_bool				init_rules(int ac, char *av[]);
 t_bool				init_philosophers(t_rules *rules);
 
-// THREADS
+// TASK
+void				*philo_task(void *args);
 
+// THREAD
+void				thread_build(t_thread *thread, t_philo *philo);
 
 
 #endif

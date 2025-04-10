@@ -6,7 +6,7 @@
 /*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 18:23:38 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/09 15:00:56 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/10 01:05:45 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ t_bool	init_philosophers(t_rules *rules)
 		rules->philo[i].id = i + 1;
 		if (ft_init_forks(&rules->philo[i].forks, i))
 			return (true);
-		//thread_build(&rules->philo[i].thread, &rules->philo[i]);
+		thread_build(&rules->philo[i].thread, &rules->philo[i]);
 		i++;
 	}
 	return (false);

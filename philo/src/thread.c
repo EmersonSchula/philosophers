@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   thread.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/12 18:51:11 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/10 02:07:14 by eschula          ###   ########.fr       */
+/*   Created: 2025/04/10 01:06:32 by eschula           #+#    #+#             */
+/*   Updated: 2025/04/10 02:28:31 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
+#include "string.h"
 
-t_rules	*get_rules(void)
+void    thread_build(t_thread *thread, t_philo *philo)
 {
-	static t_rules	rules;
-
-	return (&rules);
-}
-
-t_utils_mutex	*get_mutex(void)
-{
-	static t_utils_mutex	mutex;
-
-	return (&mutex);
+    thread->fun = &philo_task;
+    thread->args = philo;
 }

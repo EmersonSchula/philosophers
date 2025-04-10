@@ -25,11 +25,14 @@ UTILS_PATH := ./utils/
 
 # SOURCES AND OBJECTS
 FILES := \
+	task.c \
 	init.c \
 	main.c \
+	thread.c \
 	errors.c \
 	validation.c \
 	$(UTILS_PATH)lib.c \
+	$(UTILS_PATH)time.c \
 	$(UTILS_PATH)utils.c \
 	$(UTILS_PATH)ft_mutex.c \
 	$(UTILS_PATH)ft_malloc.c 
