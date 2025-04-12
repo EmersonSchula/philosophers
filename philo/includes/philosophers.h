@@ -6,7 +6,7 @@
 /*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 16:12:45 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/10 17:10:01 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/12 13:52:04 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,11 @@ typedef enum e_bool
 
 typedef enum e_status
 {
+	S_SLEEPING,
+	S_THINKING,
+	S_EATING,
 	S_FORK,
+	S_DEAD
 }					t_status;
 
 typedef enum e_error
@@ -91,6 +95,7 @@ typedef struct s_rules
 }					t_rules;
 
 // TIME
+size_t				ft_get_time(void);
 void				ft_msleep(long long ms);
 
 // VALIDATE

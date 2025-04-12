@@ -6,7 +6,7 @@
 /*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 01:13:47 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/10 17:11:55 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/12 12:57:20 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void philo_take_fork(t_philo *philo)
         ft_mutex_lock(philo->forks.left);
         print_status(*philo, S_FORK);
         ft_mutex_lock(philo->forks.right);
-        print_status(*philo, S_FORK);       
+        print_status(*philo, S_FORK);
     }
 }
 
