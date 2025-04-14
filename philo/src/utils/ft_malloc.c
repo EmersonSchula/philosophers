@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_malloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eschula <<marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 19:38:02 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/10 14:54:13 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/14 14:53:58 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	*ft_malloc(size_t size)
 	memset(ptr, 0, size);
 	mlc->list[mlc->i] = ptr;
 	mlc->i++;
-	return (ptr);	
+	return (ptr);
 }
 
 void	ft_free_all(void)

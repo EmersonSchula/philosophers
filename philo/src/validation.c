@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eschula <<marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:39:41 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/10 02:23:24 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/14 15:01:43 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ t_bool	ft_all_eaten(void)
 		ft_mutex_unlock(&get_mutex()->meals);
 		return (true);
 	}
-	ft_mutex_unlock(&get_mutex()->meals);	
+	ft_mutex_unlock(&get_mutex()->meals);
 	return (false);
 }

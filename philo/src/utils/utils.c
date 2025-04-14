@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eschula <<marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 18:51:11 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/12 13:51:36 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/14 14:52:51 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	print_msg(int id, char *msg)
 	ft_mutex_lock(&get_mutex()->print);
 	if (!check_philo_dead())
 	{
-		printf(C_WHT C_BLD "%zu " C_RST "%d %s\n", ft_get_time(), id ,msg);
+		printf(C_WHT C_BLD "%zu " C_RST "%d %s\n", ft_get_time(), id, msg);
 	}
 	ft_mutex_unlock(&get_mutex()->print);
 }

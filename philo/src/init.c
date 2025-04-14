@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eschula <<marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 18:23:38 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/14 00:26:10 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/14 15:05:55 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_bool	init_utils_mutex(t_utils_mutex *mtx)
 t_bool	init_rules(int ac, char *av[])
 {
 	t_rules	*rules;
-	
+
 	rules = get_rules();
 	rules->philo_dead = false;
 	rules->num_of_philosophers = ft_atost(av[1]);
@@ -50,8 +50,8 @@ t_bool	init_rules(int ac, char *av[])
 
 static t_bool	ft_init_forks(t_forks *forks, size_t i)
 {
-	static	t_forks			*first_fork;
-	static	pthread_mutex_t	*last;
+	static t_forks			*first_fork;
+	static pthread_mutex_t	*last;
 
 	if (i == 0)
 	{
@@ -77,7 +77,7 @@ static t_bool	ft_init_forks(t_forks *forks, size_t i)
 t_bool	init_philosophers(t_rules *rules)
 {
 	size_t	i;
-	
+
 	i = 0;
 	while (i < rules->num_of_philosophers)
 	{

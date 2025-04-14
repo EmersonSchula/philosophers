@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eschula <<marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 16:12:45 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/13 23:41:34 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/14 14:46:55 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef enum e_error
 	E_INVALID_PHIL_NUM,
 }					t_error;
 
-typedef struct	s_thread
+typedef struct s_thread
 {
 	pthread_t		thread;
 	void			*(*fun)(void *);
@@ -64,14 +64,13 @@ typedef struct s_utils_mutex
 	pthread_mutex_t	print;
 }					t_utils_mutex;
 
-
-typedef struct	s_forks
+typedef struct s_forks
 {
 	pthread_mutex_t	*right;
 	pthread_mutex_t	*left;
 }					t_forks;
 
-typedef struct	s_philo
+typedef struct s_philo
 {
 	size_t			id;
 	size_t			meals;
@@ -126,6 +125,5 @@ t_bool				start_philo_task(t_rules *rules);
 // THREAD
 t_bool				init_thread(t_thread *thread);
 void				thread_build(t_thread *thread, t_philo *philo);
-
 
 #endif

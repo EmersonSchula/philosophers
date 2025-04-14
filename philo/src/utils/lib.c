@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lib.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eschula <<marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 19:00:25 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/10 00:26:28 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/14 14:53:44 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ size_t	ft_atost(const char *nptr)
 size_t	ft_strlen(const char *str)
 {
 	size_t	i;
-	
+
 	i = 0;
 	while (str[i])
 		i++;
-	return (i);	
+	return (i);
 }
