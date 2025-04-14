@@ -31,6 +31,7 @@ FILES := \
 	thread.c \
 	errors.c \
 	validation.c \
+	exec.c \
 	$(UTILS_PATH)lib.c \
 	$(UTILS_PATH)time.c \
 	$(UTILS_PATH)utils.c \

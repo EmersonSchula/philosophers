@@ -6,7 +6,7 @@
 /*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 16:12:45 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/12 13:52:04 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/13 13:02:40 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,8 +121,11 @@ t_bool				init_utils_mutex(t_utils_mutex *mtx);
 
 // TASK
 void				*philo_task(void *args);
+void				*solo_routine(void *args);
+t_bool				start_philo_task(t_rules *rules);
 
 // THREAD
+t_bool				init_thread(t_thread *thread);
 void				thread_build(t_thread *thread, t_philo *philo);
 
 
