@@ -6,7 +6,7 @@
 /*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 01:13:47 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/12 12:57:20 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/13 23:09:24 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,30 @@ static void philo_take_fork(t_philo *philo)
     }
 }
 
+static void philo_eat(t_philo *philo)
+{
+    print_status(*philo, S_EATING);
+    ft_msleep(get_rules()->eat_time);
+    ft_mutex_lock(&get_mutex()->meals);
+    philo->last_meal = ft_get_time();
+    philo->meals++;
+    ft_mutex_unlock(&get_mutex()->meals);
+	ft_mutex_unlock(philo->forks.left);
+	ft_mutex_unlock(philo->forks.right);
+}
+
+static void philo_sleep(t_philo *philo)
+{
+    print_status(*philo, S_SLEEPING);
+    ft_msleep(get_rules()->sleep_time);
+}
+
+static void philo_think(t_philo *philo)
+{
+    print_status(*philo, S_THINKING);
+    ft_msleep(get_rules()->think_time);
+}
+
 void    *philo_task(void *args)
 {
     t_philo *philo;
@@ -42,6 +66,9 @@ void    *philo_task(void *args)
         if (ft_all_eaten())
             break;
         philo_take_fork(philo);
+        philo_eat(philo);
+		philo_sleep(philo);
+		philo_think(philo);
     }
     return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 18:23:38 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/10 15:47:15 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/14 00:26:10 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static t_bool	ft_init_forks(t_forks *forks, size_t i)
 		forks->right = ft_malloc(sizeof(pthread_mutex_t));
 		if (ft_mutex_init(forks->right))
 			return (handle_error(E_MUTEX_FAILED));
-		forks->right = last;
+		forks->left = last;
 		last = forks->right;
 		if (i == get_rules()->num_of_philosophers - 1)
 			first_fork->left = forks->right;

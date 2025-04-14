@@ -6,7 +6,7 @@
 /*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:37:22 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/10 15:56:02 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/13 21:24:07 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ int	main(int argc, char **argv)
 		return (1);
 	if (start_philo_task(get_rules()))
 		return (1);
+	handle_error(E_SUCCESS);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 16:12:45 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/13 13:02:40 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/13 23:41:34 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ typedef enum e_error
 	E_MALLOC_FAILED,
 	E_THREAD_FAILED,
 	E_INVALID_PHIL_NUM,
-	
 }					t_error;
 
 typedef struct	s_thread

@@ -6,7 +6,7 @@
 /*   By: eschula <eschula@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 15:07:12 by eschula           #+#    #+#             */
-/*   Updated: 2025/04/13 20:46:06 by eschula          ###   ########.fr       */
+/*   Updated: 2025/04/13 23:19:57 by eschula          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ static void ft_monitor(void)
 t_bool  start_philo_task(t_rules *rules)
 {
     t_philo *philo;
-    size_t i;
+    size_t  i;
 
     if (rules->num_of_philosophers == 1)
     {
